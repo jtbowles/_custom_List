@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace MyCustomList
 {
-    public class CustomList
+    public class CustomList<T>
     {
+        T[] array;
+
+        public CustomList()
+        {
+
+        }
+
     }
 }
