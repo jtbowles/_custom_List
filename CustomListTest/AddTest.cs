@@ -13,14 +13,14 @@ namespace CustomListTest
             // arrange
             CustomList<int> list = new CustomList<int>();
             int expectedResult = 1;
-            int actuaResult;
+            int actualResult;
 
             // act
             list.Add(15);
-            actuaResult = list.Count;
+            actualResult = list.Count;
 
             // assert
-            Assert.AreEqual(expectedResult, actuaResult);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
@@ -29,14 +29,14 @@ namespace CustomListTest
             // arrange
             CustomList<int> list = new CustomList<int>();
             int expectedResult = 15;
-            int actuaResult;
+            int actualResult;
 
             // act
             list.Add(15);
-            actuaResult = list[0];
+            actualResult = list[0];
 
             // assert
-            Assert.AreEqual(expectedResult, actuaResult);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
@@ -45,16 +45,16 @@ namespace CustomListTest
             // arrange
             CustomList<double> list = new CustomList<double>();
             double expectedResult = -4.7;
-            double actuaResult;
+            double actualResult;
 
             // act
             list.Add(-1.2);
             list.Add(-3.5);
             list.Add(-4.7);
-            actuaResult = list[2];
+            actualResult = list[2];
 
             // assert
-            Assert.AreEqual(expectedResult, actuaResult);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
@@ -90,5 +90,26 @@ namespace CustomListTest
             // assert
             Assert.IsTrue(actualResult);
         }
+
+        [TestMethod]
+        public void Add_5Ints_ResultAtIndex3()
+        {
+            // arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedResult = 11;
+            int actualResult;
+
+            // act
+            list.Add(15);
+            list.Add(11);
+            list.Add(9);
+            list.Add(83);
+            list.Add(92);
+            actualResult = list[1];
+
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
     }
 }
