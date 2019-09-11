@@ -1,0 +1,17 @@
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\obj\Debug\CustomListTest.csprojAssemblyReference.cache
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\obj\Debug\CustomListTest.csproj.CoreCompileInputs.cache
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\bin\Debug\CustomListTest.dll
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\bin\Debug\CustomListTest.pdb
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\bin\Debug\MyCustomList.exe
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\bin\Debug\MyCustomList.pdb
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\bin\Debug\MyCustomList.exe.config
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\obj\Debug\CustomListTest.csproj.CopyComplete
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\obj\Debug\CustomListTest.dll
+C:\Users\jbowl\Desktop\All Projects [dCC]\_custom_List\MyCustomList\CustomListTest\obj\Debug\CustomListTest.pdb
