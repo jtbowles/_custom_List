@@ -40,58 +40,6 @@ namespace CustomListTest
         }
 
         [TestMethod]
-        public void Add_NegativeDoubles_IndexerAt()
-        {
-            // arrange
-            CustomList<double> list = new CustomList<double>();
-            double expectedResult = -4.7;
-            double actualResult;
-
-            // act
-            list.Add(-1.2);
-            list.Add(-3.5);
-            list.Add(-4.7);
-            actualResult = list[2];
-
-            // assert
-            Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [TestMethod]
-        public void Add_String_CapacityIncreases()
-        {
-            // arrange
-            CustomList<string> list = new CustomList<string>() {"Brady", "Mahomes", "Mayfield", "Wentz"};
-            int expectedResult = 8;
-            int actualResult;
-
-            // act
-            list.Add("Cousins");
-            actualResult = list.Capacity;
-
-            // assert
-            Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [TestMethod]
-        public void Add_FourStrings_ReturnsTrue()
-        {
-            // arrange
-            CustomList<string> list = new CustomList<string>();
-            bool actualResult;
-
-            // act
-            list.Add("Brady");
-            list.Add("Mahomes");
-            list.Add("Mayfield");
-            list.Add("Cousins");
-            actualResult = list.Capacity == list.Count;
-
-            // assert
-            Assert.IsTrue(actualResult);
-        }
-
-        [TestMethod]
         public void Add_5Ints_ResultAtIndex3()
         {
             // arrange
@@ -111,5 +59,52 @@ namespace CustomListTest
             Assert.AreEqual(expectedResult, actualResult);
         }
 
+        [TestMethod]
+        public void Add_9Strings_ResultAtIndexSix()
+        {
+            // arrange
+            CustomList<string> list = new CustomList<string>();
+            string expectedResult = "Bell";
+            string actualResult;
+
+            // act
+            list.Add("Kamara");
+            list.Add("Barkley");
+            list.Add("McCaffrey");
+            list.Add("Chubb");
+            list.Add("Cook");
+            list.Add("Carson");
+            list.Add("Bell");
+            list.Add("Gurley II");
+            list.Add("Peterson");
+            actualResult = list[6];
+
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        public void Add_9Strings_CountIsNine()
+        {
+            // arrange
+            CustomList<string> list = new CustomList<string>();
+            int expectedResult = 9;
+            int actualResult;
+
+            // act
+            list.Add("Kamara");
+            list.Add("Barkley");
+            list.Add("McCaffrey");
+            list.Add("Chubb");
+            list.Add("Cook");
+            list.Add("Carson");
+            list.Add("Bell");
+            list.Add("Gurley II");
+            list.Add("Peterson");
+            actualResult = list.Count;
+
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }
