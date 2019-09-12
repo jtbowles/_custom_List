@@ -9,7 +9,6 @@ namespace MyCustomList
     public class CustomList<T>
     {
         private T[] array;
-        //T value;
         
         public int Count { get; private set; }
         public int Capacity { get; private set; }
@@ -32,7 +31,8 @@ namespace MyCustomList
         public void Add(T item)
         {
             CheckCapacity();
-            Count++;
+            IncrementCount();
+
             T[] temporaryArray = new T[Capacity];
 
             for (int i = 0; i < Count; i++)
@@ -54,8 +54,12 @@ namespace MyCustomList
             if(Count == Capacity)
             {
                 Capacity *= 2;
-                // create new array of bigger size and transfer the content over to the T[] array
             }
+        }
+
+        private void IncrementCount()
+        {
+            Count++;
         }
     }
 }

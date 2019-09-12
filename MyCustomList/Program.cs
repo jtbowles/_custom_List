@@ -10,19 +10,26 @@ namespace MyCustomList
     {
         static void Main(string[] args)
         {
-            CustomList<int> test = new CustomList<int>();
-            test.Add(2);
-            test.Add(5);
-            test.Add(6);
-            test.Add(8);
-            test.Add(3);
-
-            //List<int> test = new List<int>();
-            //test.Add(1);
+            //CustomList<int> test = new CustomList<int>();
             //test.Add(2);
-            //test.Add(3);
-            //test.Add(4);
             //test.Add(5);
+            //test.Add(6);
+            //test.Add(8);
+            //test.Add(3);
+
+            List<int> test = new List<int>();
+            test.Add(1);
+            test.Add(2);
+            test.Add(3);
+            test.Add(4);
+            test.Add(5);
+            test.Remove(0);
+            test.Remove(2);
+            test.Remove(3);
+            test.Remove(1);
+            test.Remove(4);
+
+
         }
     }
 }

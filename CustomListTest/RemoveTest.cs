@@ -12,13 +12,20 @@ namespace CustomListTest
         {
             // arrange
             CustomList<string> list = new CustomList<string>();
-
+            string expectedResult = "Name";
+            string actualResult;
 
             // act
             list.Add("Hello");
-            
+            list.Add("My");
+            list.Add("Name");
+            list.Add("Is");
+            list.Add("YeaBoi");
+            list.Remove("My");
+            actualResult = list[1];
 
             // assert
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
