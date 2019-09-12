@@ -10,6 +10,10 @@ namespace MyCustomList
     {
         static void Main(string[] args)
         {
+
+            List<int> testList = new List<int> { 1, 2, 3, 2 };
+
+            testList.Remove(2);
             CustomList<int> test = new CustomList<int>();
             test.Add(2);
             test.Add(5);

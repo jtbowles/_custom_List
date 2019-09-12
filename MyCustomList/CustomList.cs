@@ -56,59 +56,84 @@ namespace MyCustomList
         public /*bool*/ void Remove(T item)
         {
             T[] temporaryArray = new T[Capacity];
-            
+            int openIndex = 0;
 
-            for (int i = 0; i <= Count;)
+            for (int i = 0; i < Count; i++)
             {
-                for (int j = 0; j <= Count;)
+                if (item.Equals(array[i]))
                 {
-                    bool contains = ContainsItem(array[j], item);
-
-                    if (contains)
-                    {
-                        //CheckOccurance();
-                        //if(numberOfOccurances == 1)
-                        //{
-                            DecrementCount();
-                            i++;
-                        //}
-                        //else
-                        //{
-                        //    temporaryArray[i] = array[j];
-                        //    j++;
-                        //    i++;
-                        //}
-                        // check if it's the first occurance ? remove : add to tempArray
-                    }
-                    else
-                    {
-                        temporaryArray[i] = array[j];
-                        j++;
-                        i++;
-                    }
-
-                    //if (!contains)
-                    //{
-                    //    temporaryArray[j] = array[i];
-                    //    j++;
-                    //    i++;
-                    //}
-                    //else if(contains && firstOccurance)
-                    //{
-                    //    temporaryArray[j] = array[i];
-                    //    j++;
-                    //    i++;
-                    //}
-                    //else
-                    //{
-
-                    //    DecrementCount();
-                    //    i++;
-                    //}
+                    // then i is the first index position of the item to remove
+                    openIndex = i;
                 }
-
             }
-            array = temporaryArray;
+
+            for (int i = openIndex; i < Count; i++)
+            {
+                // [1, 3, 2, 4, 4]
+                array[i] = array[i + 1];
+                DecrementCount();
+                // -- coun
+            }
+
+            // shift every value in the array back one spot from the indexToNote
+
+            // decrament count
+
+
+
+
+
+            //for (int i = 0; i <= Count;)
+            //{
+            //    for (int j = 0; j <= Count;)
+            //    {
+            //        bool contains = ContainsItem(array[j], item);
+
+            //        if (contains)
+            //        {
+            //            //CheckOccurance();
+            //            //if(numberOfOccurances == 1)
+            //            //{
+            //                DecrementCount();
+            //                i++;
+            //            //}
+            //            //else
+            //            //{
+            //            //    temporaryArray[i] = array[j];
+            //            //    j++;
+            //            //    i++;
+            //            //}
+            //            // check if it's the first occurance ? remove : add to tempArray
+            //        }
+            //        else
+            //        {
+            //            temporaryArray[i] = array[j];
+            //            j++;
+            //            i++;
+            //        }
+
+            //        //if (!contains)
+            //        //{
+            //        //    temporaryArray[j] = array[i];
+            //        //    j++;
+            //        //    i++;
+            //        //}
+            //        //else if(contains && firstOccurance)
+            //        //{
+            //        //    temporaryArray[j] = array[i];
+            //        //    j++;
+            //        //    i++;
+            //        //}
+            //        //else
+            //        //{
+
+            //        //    DecrementCount();
+            //        //    i++;
+            //        //}
+            //    }
+
+            //}
+            //array = temporaryArray;
         }
 
         private void CheckCapacity()
@@ -117,12 +142,6 @@ namespace MyCustomList
             {
                 Capacity *= 2;
             }
-        }
-
-        private void CheckOccurance()
-        {
-
-            numberOfOccurances++;
         }
 
         private bool ContainsItem(T index, T item)
