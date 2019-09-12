@@ -8,7 +8,7 @@ namespace CustomListTest
     public class RemoveTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Remove_StringMy_IndeciesShifted()
         {
             // arrange
             CustomList<string> list = new CustomList<string>();
@@ -29,43 +29,83 @@ namespace CustomListTest
         }
 
         [TestMethod]
-        public void TestMethod2()
+        public void Remove_TwoDifferentInts_ElemenIndexChanges()
         {
             // arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedResult = 3;
+            int actualResult;
 
             // act
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Remove(2);
+            list.Remove(1);
+            actualResult = list[0];
 
             // assert
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
-        public void TestMethod3()
+        public void Remove_StringHello_RemovesFirstInstance()
         {
             // arrange
+            CustomList<string> list = new CustomList<string>();
+            int expectedResult = 2;
+            int actualResult;
 
             // act
+            list.Add("Hello");
+            list.Add("Hello");
+            list.Add("Hello");
+            list.Remove("Hello");
+            actualResult = list.Count;
 
             // assert
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
-        public void TestMethod4()
+        public void Remove_Int3_RemovesFirstInstance()
         {
             // arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedResult = 3;
+            int actualResult;
 
             // act
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+            list.Add(3);
+            list.Remove(3);
+            actualResult = list[4];
 
             // assert
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
-        public void TestMethod5()
+        public void Remove_IntNotInTheList_ListIsUnaffected()
         {
             // arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedResult = 3;
+            int actualResult;
 
             // act
+            list.Add(30);
+            list.Add(11);
+            list.Add(23);
+            list.Remove(35);
+            actualResult = list.Count;
 
             // assert
+            Assert.AreEqual(expectedResult, actualResult);
         }
     }
 }
