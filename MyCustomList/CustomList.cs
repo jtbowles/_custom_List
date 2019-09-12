@@ -8,11 +8,11 @@ namespace MyCustomList
 {
     public class CustomList<T>
     {
-        public T[] array;
+        private T[] array;
         //T value;
-
+        
         public int Count { get; private set; }
-        public int Capacity { get; set; }
+        public int Capacity { get; private set; }
 
         public T this[int i]
         {
@@ -22,7 +22,7 @@ namespace MyCustomList
 
         public CustomList()
         {
-            Capacity = 0;
+            Capacity = 4;
             Count = 0;
             array = new T[Capacity];
         }
@@ -32,30 +32,29 @@ namespace MyCustomList
         public void Add(T item)
         {
             CheckCapacity();
-
-            
-            // for(int i = Count; i < Capacity; i++)
-            // array[Count] = item
-            // array[0] = item
-
+            Count++;
             T[] temporaryArray = new T[Capacity];
-            if(Count == 0)
+
+            for (int i = 0; i < Count; i++)
             {
-                temporaryArray[0] = item;
-                array = temporaryArray;
+                if(i == Count - 1)
+                {
+                    temporaryArray[i] = item;
+                }
+                else
+                {
+                    temporaryArray[i] = array[i];
+                }
             }
+            array = temporaryArray;
         }
 
         private void CheckCapacity()
         {
-            if(Count == 0 && Capacity == 0)
+            if(Count == Capacity)
             {
-                Capacity = 4;
-                Count++;
-            }
-            else if(Count > Capacity)
-            {
-                Capacity += 4;
+                Capacity *= 2;
+                // create new array of bigger size and transfer the content over to the T[] array
             }
         }
     }
