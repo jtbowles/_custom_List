@@ -110,6 +110,22 @@ namespace MyCustomList
             return temporaryList;
         }
 
+        public static CustomList<T> operator -(CustomList<T> a, CustomList<T> b)
+        {
+            foreach (T element in a)
+            {
+                for (int i = 0; i < b.Count; i++)
+                {
+                    if(element.Equals(b[i]))
+                    {
+                        a.Remove(element);
+                        b.Remove(element);
+                    }
+                }
+            }
+            return a;
+        }
+
         private void CheckCapacity()
         {
             if(Count == Capacity)

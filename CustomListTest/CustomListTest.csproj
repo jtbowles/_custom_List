@@ -54,6 +54,7 @@
     <Compile Include="RemoveTest.cs" />
     <Compile Include="ToStringTest.cs" />
     <Compile Include="OverloadOpAddTest.cs" />
+    <Compile Include="OverloadOpSubTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
