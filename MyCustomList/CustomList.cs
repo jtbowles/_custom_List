@@ -9,6 +9,7 @@ namespace MyCustomList
     public class CustomList<T>
     {
         private T[] array;
+        //public T value;
         
         public int Count { get; private set; }
         public int Capacity { get; private set; }
@@ -89,6 +90,15 @@ namespace MyCustomList
             }
             return runningStr;
         }
+
+        //public static CustomList<T> operator +(CustomList<T> a, CustomList<T> b)
+        //{
+        //    CustomList<T> addedList = new CustomList<T>();
+
+        //    // for (
+
+        //    return addedList;
+        //}
 
         private void CheckCapacity()
         {
