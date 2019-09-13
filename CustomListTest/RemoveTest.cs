@@ -108,5 +108,34 @@ namespace CustomListTest
             // assert
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [TestMethod]
+        public void Test69()
+        {
+            // arrange
+            CustomList<string> allStar = new CustomList<string>();
+            string expectedResult = "Cook";
+            string actualResult;
+
+            // act
+            allStar.Add("Rodgers");
+            allStar.Add("Wilson");
+            allStar.Add("Brady");
+            allStar.Add("Vick");
+            allStar.Add("Favre");
+            allStar.Add("Starr");
+            allStar.Add("McNabb");
+            allStar.Add("Cook");
+
+            allStar.Remove("Favre");
+            allStar.Remove("Starr");
+            allStar.Remove("McNabb");
+
+            actualResult = allStar[4];
+
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
     }
 }

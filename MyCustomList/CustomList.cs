@@ -9,7 +9,6 @@ namespace MyCustomList
     public class CustomList<T>
     {
         private T[] array;
-        //private T value;
         
         public int Count { get; private set; }
         public int Capacity { get; private set; }
@@ -78,7 +77,7 @@ namespace MyCustomList
 
                 //if(openIndex > 0)
                 //{
-                for (int i = openIndex; i < Count; i++)
+                for (int i = openIndex; i < Count - 1; i++)
                 {
                     // [1, 3, 2, 4, 4]
                     temporaryArray[i] = array[i + 1];
@@ -86,14 +85,7 @@ namespace MyCustomList
                 }
                 DecrementCount();
                 array = temporaryArray;
-
             }
-
-            //}
-
-            // shift every value in the array back one spot from the indexToNote
-
-            // decrament count
         }
 
         private void CheckCapacity()
