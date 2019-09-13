@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyCustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         private T[] array;
         //public T value;
@@ -91,14 +93,22 @@ namespace MyCustomList
             return runningStr;
         }
 
-        //public static CustomList<T> operator +(CustomList<T> a, CustomList<T> b)
-        //{
-        //    CustomList<T> addedList = new CustomList<T>();
+        public static CustomList<T> operator +(CustomList<T> a, CustomList<T> b)
+        {
+            CustomList<T> temporaryList = new CustomList<T>();
 
-        //    // for (
+            for (int i = 0; i < a.Count; i++)
+            {
+                temporaryList.Add(a[i]);
+            }
 
-        //    return addedList;
-        //}
+            for (int i = 0; i < b.Count; i++)
+            {
+                temporaryList.Add(b[i]);
+            }
+
+            return temporaryList;
+        }
 
         private void CheckCapacity()
         {
@@ -130,6 +140,14 @@ namespace MyCustomList
         private void DecrementCount()
         {
             Count--;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                yield return array[i];
+            }
         }
     }
 }

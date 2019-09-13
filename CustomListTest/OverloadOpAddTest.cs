@@ -21,7 +21,7 @@ namespace CustomListTest
             actualResult = testOne + testTwo;
 
             // assert
-            Assert.AreEqual(expectedResult, actualResult);
+            Assert.AreEqual(expectedResult.ToString(), actualResult.ToString());
         }
 
         [TestMethod]
@@ -32,13 +32,13 @@ namespace CustomListTest
             CustomList<int> two = new CustomList<int>() { 3, 4, 5 };
 
             CustomList<int> expectedResult = new CustomList<int>() { 3, 4, 5, 1, 2 };
-            CustomList<int> actualResult;
+            CustomList<int> actualResult = new CustomList<int>();
 
             // act
             actualResult = two + one;
 
             // assert
-            Assert.AreEqual(expectedResult, actualResult);
+            Assert.AreEqual(expectedResult.ToString(), actualResult.ToString());
         }
 
         [TestMethod]
@@ -55,20 +55,7 @@ namespace CustomListTest
             actualResult = one + two;
 
             // assert
-            Assert.AreEqual(expectedResult, actualResult);
+            Assert.AreEqual(expectedResult.ToString(), actualResult.ToString());
         }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void OverloadOperator_ListOfDifferentTypes_ExceptionThrown()
-        {
-            // arrange
-            CustomList<string> str = new CustomList<string>() { "Three", "Four", "Five" };
-            CustomList<int> num = new CustomList<int>() { 3, 4, 5 };
-
-            // act
-            CustomList<string> result = num + str;
-        }
-
     }
 }
