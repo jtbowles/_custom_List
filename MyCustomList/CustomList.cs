@@ -59,33 +59,35 @@ namespace MyCustomList
                 T[] temporaryArray = new T[Capacity];
                 int openIndex = 0;
 
-                //Check if item is in the T[] array
-
                 for (int i = 0; i < Count; i++)
                 {
                     if (item.Equals(array[i]))
                     {
-                        // then i is the first index position of the item to remove
                         openIndex = i;
                         break;
                     }
-                    //else
-                    //{
                     temporaryArray[i] = array[i];
-                    //}
                 }
 
-                //if(openIndex > 0)
-                //{
                 for (int i = openIndex; i < Count - 1; i++)
                 {
-                    // [1, 3, 2, 4, 4]
                     temporaryArray[i] = array[i + 1];
-
                 }
                 DecrementCount();
                 array = temporaryArray;
             }
+        }
+
+        public override string ToString()
+        {
+            string runningStr = "";
+
+            for (int i = 0; i < Count; i++)
+            {
+                string x = array[i].ToString();
+                runningStr += x + " ";
+            }
+            return runningStr;
         }
 
         private void CheckCapacity()
@@ -109,24 +111,6 @@ namespace MyCustomList
             }
             return contains;
         }
-
-        //private bool ContainsItem(T item)
-        //{
-        //    bool contains;
-
-        //    for (int i = 0; i < Count; i++)
-        //    {
-        //        if (item.Equals([i])
-        //        {
-        //            contains = true;
-        //        }
-        //        else
-        //        {
-        //            contains = false;
-        //        }
-        //    }
-        //    return contains;
-        //}
 
         private void IncrementCount()
         {
