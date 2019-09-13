@@ -82,6 +82,7 @@ namespace CustomListTest
             list.Add(4);
             list.Add(5);
             list.Add(3);
+            list.Add(4);
             list.Remove(3);
             actualResult = list[4];
 
