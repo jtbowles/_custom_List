@@ -87,57 +87,51 @@ namespace MyCustomList
 
         public static CustomList<T> operator -(CustomList<T> a, CustomList<T> b)
         {
-            foreach (T element in a)
-            {
-                CompareAndRemove(element, a, b);
-            }
+            CustomList<T> sumOfLists = a + new CustomList<T>();
 
-            return a;
-        }
-
-        private static void CompareAndRemove(T element, CustomList<T> a, CustomList<T> b)
-        {
             for (int i = 0; i < b.Count; i++)
             {
-                if (element.Equals(b[i]))
-                {
-                    a.Remove(element);
-                    b.Remove(element);
-                }
+                sumOfLists.Remove(b[i]);
             }
+
+            return sumOfLists;
         }
 
 
         public CustomList<T> Zip(CustomList<T> passedInList)
         {
             CustomList<T> temporaryList = new CustomList<T>();
+            bool listOneCountGreaterThanZero = CheckListCountGreaterThanZero(this);
+            bool listTwoCountGreaterThanZero = CheckListCountGreaterThanZero(passedInList);
 
-            if (Count > 0 && passedInList.Count > 0)
+            if (listOneCountGreaterThanZero && listTwoCountGreaterThanZero)
             {
                 CustomList<T> biggerList = CompareListCounts(this, passedInList);
-                int openIndex = 0;
+                int openIndex = ZipTwoListsWithCountsGreaterThanZero(passedInList, temporaryList);
 
-                for (int i = 0; i < Count && i < passedInList.Count; i++)
-                {
-                    temporaryList.Add(array[i]);
-                    temporaryList.Add(passedInList[i]);
-                    openIndex = i;
-                }
+                ZipRemainingValues(openIndex, biggerList, temporaryList);
+            }
+            else
+            {
+                temporaryList = SetZippedList(passedInList, listOneCountGreaterThanZero, listTwoCountGreaterThanZero);
+            }
 
-                for (int i = openIndex + 1; i < biggerList.Count; i++)
-                {
-                    temporaryList.Add(biggerList[i]);
-                }
-            }
-            else if (Count > 0 && passedInList.Count == 0)
-            {
-                temporaryList = this;
-            }
-            else if (Count == 0 && passedInList.Count > 0)
-            {
-                temporaryList = passedInList;
-            }
             return temporaryList;
+        }
+
+
+
+
+        private bool CheckListCountGreaterThanZero(CustomList<T> passedInList)
+        {
+            if(passedInList.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private CustomList<T> CompareListCounts(CustomList<T> one, CustomList<T> two)
@@ -156,12 +150,64 @@ namespace MyCustomList
             return result;
         }
 
+        private int ZipTwoListsWithCountsGreaterThanZero(CustomList<T> passedInList, CustomList<T> temporaryList)
+        {
+            int openIndex = 0;
+
+            for (int i = 0; i < Count && i < passedInList.Count; i++)
+            {
+                temporaryList.Add(array[i]);
+                temporaryList.Add(passedInList[i]);
+                openIndex = i;
+            }
+
+            return openIndex;
+        }
+
+        private void ZipRemainingValues(int openIndex, CustomList<T> biggerList, CustomList<T> temporaryList)
+        {
+            for (int i = openIndex + 1; i < biggerList.Count; i++)
+            {
+                temporaryList.Add(biggerList[i]);
+            }
+        }
+
+        private CustomList<T> SetZippedList(CustomList<T> passedInList, bool one, bool two)
+        {
+            CustomList<T> temporary = new CustomList<T>();
+
+            if (one && !two)
+            {
+                temporary = this;
+            }
+            else if (!one && two)
+            {
+                temporary = passedInList;
+            }
+
+            return temporary;
+        }
+
         private void CheckCapacity()
         {
             if(Count == Capacity)
             {
                 Capacity *= 2;
             }
+        }
+
+       
+
+        private static bool CheckList(T item, T comparableItem)
+        {
+            bool contains = false;
+
+            if (item.Equals(comparableItem))
+            {
+                return true;
+            }
+
+            return contains;
         }
 
         private bool CheckArray(T item)
@@ -225,6 +271,19 @@ namespace MyCustomList
             for (int i = 0; i < a.Count; i++)
             {
                 temporaryList.Add(a[i]);
+            }
+        }
+
+        private static void CompareAndRemove(T element, CustomList<T> a, CustomList<T> b)
+        {
+            int counter = b.Count;
+            for (int i = 0; i < counter; i++)
+            {
+                if (element.Equals(b[i]))
+                {
+                    a.Remove(element);
+                    b.Remove(element);
+                }
             }
         }
 

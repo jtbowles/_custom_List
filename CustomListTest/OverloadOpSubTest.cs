@@ -59,9 +59,9 @@ namespace CustomListTest
         public void OverloadOpSub_SubtractListOfFourFromEmptyList_ReturnsEmptyList()
         {
             // arrange
-            CustomList<string> numOne = new CustomList<string>() { "Jason", "Connor", "Scott", "Connor" };
-            CustomList<string> numTwo = new CustomList<string>() {  };
-            CustomList<string> expectedResult = new CustomList<string>() {  };
+            CustomList<string> numOne = new CustomList<string>() { "Jason", "Connor", "Scott" };
+            CustomList<string> numTwo = new CustomList<string>() { "Nelson", "Connor", "Scott"};
+            CustomList<string> expectedResult = new CustomList<string>() { "Nelson" };
             CustomList<string> actualResult;
 
             // act
