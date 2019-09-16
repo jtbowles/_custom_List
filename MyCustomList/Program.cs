@@ -22,6 +22,17 @@ namespace MyCustomList
             //test.Add(3);
             //test.Remove(5);
 
+            //CustomList<int> one = new CustomList<int>() { 1, 4, 7, 4, 5, 9, 4 };
+            //CustomList<int> two = new CustomList<int>() { 4, 9 };
+            //CustomList<int> result = new CustomList<int>();
+
+            //result = one - two;
+
+            //foreach (int num in result)
+            //{
+            //    Console.WriteLine(num);
+            //}
+            //Console.ReadLine();
 
             //List<int> test = new List<int>();
             //test.Add(1);

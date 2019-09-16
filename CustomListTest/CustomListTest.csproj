@@ -55,6 +55,7 @@
     <Compile Include="ToStringTest.cs" />
     <Compile Include="OverloadOpAddTest.cs" />
     <Compile Include="OverloadOpSubTest.cs" />
+    <Compile Include="ZipTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

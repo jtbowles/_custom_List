@@ -11,7 +11,6 @@ namespace MyCustomList
     public class CustomList<T> : IEnumerable
     {
         private T[] array;
-        //public T value;
         
         public int Count { get; private set; }
         public int Capacity { get; private set; }
@@ -28,8 +27,6 @@ namespace MyCustomList
             Count = 0;
             array = new T[Capacity];
         }
-
-        // Call separate private methods from inside the Add()
 
         public void Add(T item)
         {
