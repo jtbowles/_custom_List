@@ -49,32 +49,16 @@ namespace MyCustomList
             array = temporaryArray;
         }
 
-
-        public /*bool*/ void Remove(T item)
+        public void Remove(T item)
         {
             bool arrayContainsItem = CheckArray(item);
 
             if (arrayContainsItem)
             {
                 T[] temporaryArray = new T[Capacity];
-                int openIndex = 0;
-
-                for (int i = 0; i < Count; i++)
-                {
-                    if (item.Equals(array[i]))
-                    {
-                        openIndex = i;
-                        break;
-                    }
-                    temporaryArray[i] = array[i];
-                }
-
-                for (int i = openIndex; i < Count - 1; i++)
-                {
-                    temporaryArray[i] = array[i + 1];
-                }
+                int openIndex = FindOpenIndex(item, temporaryArray);
+                IndexShiftAfterRemoval(openIndex, temporaryArray);
                 DecrementCount();
-                array = temporaryArray;
             }
         }
 
@@ -152,26 +136,6 @@ namespace MyCustomList
             {
                 temporaryList = passedInList;
             }
-
-            //for (int i = 0; i < biggerList.Count;)
-            //{
-            //    if(Count > 0 && passedInList.Count > 0)
-            //    {
-            //        temporaryList.Add(array[i]);
-            //        this.Remove(array[i]);
-            //        temporaryList.Add(passedInList[i]);
-            //        passedInList.Remove(passedInList[i]);
-            //    }
-            //    else if(Count > 0 && passedInList.Count == 0)
-            //    {
-            //        temporaryList.Add(array[i]);
-            //    }
-            //    else if(Count <= 0 && passedInList.Count > 0)
-            //    {
-            //        temporaryList.Add(passedInList[i]);
-            //    }
-            //}
-
             return temporaryList;
         }
 
@@ -210,7 +174,49 @@ namespace MyCustomList
                     contains = true;
                 }
             }
+
             return contains;
+        }
+
+        private int FindOpenIndex(T item, T[] temporaryArray)
+        {
+            int openIndex = 0;
+
+            for (int i = 0; i < Count; i++)
+            {
+                bool compareItems = CompareItemToIndex(item, array[i]);
+
+                if (compareItems)
+                {
+                    openIndex = i;
+                    break;
+                }
+
+                temporaryArray[i] = array[i];
+            }
+
+            return openIndex;
+        }
+
+        private bool CompareItemToIndex(T item, T indexToCheck)
+        {
+            bool check = false;
+
+            if (item.Equals(indexToCheck))
+            {
+                check = true;
+            }
+
+            return check;
+        }
+
+        private void IndexShiftAfterRemoval(int indexToStartAt, T[] temporaryArray)
+        {
+            for (int i = indexToStartAt; i < Count - 1; i++)
+            {
+                temporaryArray[i] = array[i + 1];
+            }
+            array = temporaryArray;
         }
 
         private void IncrementCount()
