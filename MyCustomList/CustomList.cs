@@ -68,9 +68,10 @@ namespace MyCustomList
 
             for (int i = 0; i < Count; i++)
             {
-                string x = array[i].ToString();
-                runningStr += x + " ";
+                string indexToString = array[i].ToString();
+                runningStr += indexToString + " ";
             }
+
             return runningStr;
         }
 
@@ -78,15 +79,8 @@ namespace MyCustomList
         {
             CustomList<T> temporaryList = new CustomList<T>();
 
-            for (int i = 0; i < a.Count; i++)
-            {
-                temporaryList.Add(a[i]);
-            }
-
-            for (int i = 0; i < b.Count; i++)
-            {
-                temporaryList.Add(b[i]);
-            }
+            temporaryList.AddToList(a, temporaryList);
+            temporaryList.AddToList(b, temporaryList);
 
             return temporaryList;
         }
@@ -217,6 +211,14 @@ namespace MyCustomList
                 temporaryArray[i] = array[i + 1];
             }
             array = temporaryArray;
+        }
+
+        private void AddToList(CustomList<T> a, CustomList<T> temporaryList)
+        {
+            for (int i = 0; i < a.Count; i++)
+            {
+                temporaryList.Add(a[i]);
+            }
         }
 
         private void IncrementCount()
