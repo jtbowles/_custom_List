@@ -89,17 +89,24 @@ namespace MyCustomList
         {
             foreach (T element in a)
             {
-                for (int i = 0; i < b.Count; i++)
-                {
-                    if(element.Equals(b[i]))
-                    {
-                        a.Remove(element);
-                        b.Remove(element);
-                    }
-                }
+                CompareAndRemove(element, a, b);
             }
+
             return a;
         }
+
+        private static void CompareAndRemove(T element, CustomList<T> a, CustomList<T> b)
+        {
+            for (int i = 0; i < b.Count; i++)
+            {
+                if (element.Equals(b[i]))
+                {
+                    a.Remove(element);
+                    b.Remove(element);
+                }
+            }
+        }
+
 
         public CustomList<T> Zip(CustomList<T> passedInList)
         {
