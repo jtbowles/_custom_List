@@ -70,5 +70,22 @@ namespace CustomListTest
             Assert.AreEqual(expectedResult.ToString(), actualResult.ToString());
         }
 
+
+        [TestMethod]
+        public void Zip_ZipEmptyList_ReturnsSecondList()
+        {
+            // arrange
+            CustomList<int> one = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> two = new CustomList<int>() { };
+            CustomList<int> expectedResult = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> actualResult;
+
+            // act
+            actualResult = two.Zip(one);
+
+            // assert
+            Assert.AreEqual(expectedResult.ToString(), actualResult.ToString());
+        }
+
     }
 }

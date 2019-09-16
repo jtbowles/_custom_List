@@ -123,6 +123,74 @@ namespace MyCustomList
             return a;
         }
 
+        public CustomList<T> Zip(CustomList<T> passedInList)
+        {
+            CustomList<T> temporaryList = new CustomList<T>();
+
+            if (Count > 0 && passedInList.Count > 0)
+            {
+                CustomList<T> biggerList = CompareListCounts(this, passedInList);
+                int openIndex = 0;
+
+                for (int i = 0; i < Count && i < passedInList.Count; i++)
+                {
+                    temporaryList.Add(array[i]);
+                    temporaryList.Add(passedInList[i]);
+                    openIndex = i;
+                }
+
+                for (int i = openIndex + 1; i < biggerList.Count; i++)
+                {
+                    temporaryList.Add(biggerList[i]);
+                }
+            }
+            else if (Count > 0 && passedInList.Count == 0)
+            {
+                temporaryList = this;
+            }
+            else if (Count == 0 && passedInList.Count > 0)
+            {
+                temporaryList = passedInList;
+            }
+
+            //for (int i = 0; i < biggerList.Count;)
+            //{
+            //    if(Count > 0 && passedInList.Count > 0)
+            //    {
+            //        temporaryList.Add(array[i]);
+            //        this.Remove(array[i]);
+            //        temporaryList.Add(passedInList[i]);
+            //        passedInList.Remove(passedInList[i]);
+            //    }
+            //    else if(Count > 0 && passedInList.Count == 0)
+            //    {
+            //        temporaryList.Add(array[i]);
+            //    }
+            //    else if(Count <= 0 && passedInList.Count > 0)
+            //    {
+            //        temporaryList.Add(passedInList[i]);
+            //    }
+            //}
+
+            return temporaryList;
+        }
+
+        private CustomList<T> CompareListCounts(CustomList<T> one, CustomList<T> two)
+        {
+            CustomList<T> result = new CustomList<T>();
+
+            if(one.Count > two.Count)
+            {
+                result = one;
+            }
+            else 
+            {
+                result = two;
+            }
+
+            return result;
+        }
+
         private void CheckCapacity()
         {
             if(Count == Capacity)
